@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { MailService } from '../mail.service';
 
 @Component({
   selector: 'app-simple-form',
   templateUrl: './simple-form.component.html',
-  styleUrls: ['./simple-form.component.css']
+  styles: []
 })
 export class SimpleFormComponent implements OnInit {
 
-  constructor() { }
+  onClick() {
+    console.log('clicked!');
+  }
+
+  constructor(private mail:MailService) { }
 
   ngOnInit() {
   }
