@@ -1,4 +1,7 @@
 <div>
-  <input type = "text">
-  <button (click)="onClick()">Click me!</button>
+
+  {{message}}
+
+  <input type = "text" [(ngModel)]="message">
+  <button (click)= "update.emit({text:message})">Click me!</button>
 </div>

@@ -6,10 +6,18 @@ export class MailService {
   message = `you've got mail`;
 
   messages = [
-    `you're now friends with John`,
-    ` hello hahahaha`,
-    `John is not here!`
+    {id: 0, text: `you're now friends with John`},
+    {id: 1, text: ` hello hahahaha`},
+    {id: 2, text: `John is not here!`}
   ];
+
   constructor() { }
 
+  update(id, text) {
+    this.messages = this.messages.map(m =>
+      m.id === id
+        ? {id, text}
+        : m
+    )
+  }
 }

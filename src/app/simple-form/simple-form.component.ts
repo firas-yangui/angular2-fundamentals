@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { MailService } from '../mail.service';
+import { Component, OnInit, Inject, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-simple-form',
@@ -8,11 +7,17 @@ import { MailService } from '../mail.service';
 })
 export class SimpleFormComponent implements OnInit {
 
+  @Input() message;
+
+  @Output() update = new EventEmitter();
+
   onClick() {
     console.log('clicked!');
   }
 
-  constructor(private mail:MailService) { }
+  constructor(@Inject('mail') private mail) {
+    setInterval(() => this.message = Math.random().toString(), 1000);
+  }
 
   ngOnInit() {
   }
